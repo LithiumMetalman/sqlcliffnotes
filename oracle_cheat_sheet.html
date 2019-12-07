@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Oracle SQL Cheater Sheet</title>
+    <meta name="description" content="boilerplate" />
+    <meta name="keywords" content="boilerplate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+  <body>
+  <style>
+pre, code {
+  font-family: monospace, monospace;
+}
+
+code{
+		overflow-x: scroll;
+		overflow-y: hidden;
+}
+
+figcaption {
+
+}
+
+  </style>
+
+<div class = "container">
+
+		<figure>
+			<figcaption>Insert statement</figcaption>
+				<pre>
+					<code>
+	INSERT INTO [TABLENAME TO INSERT DATE INTO] 
+		( 
+		FIELD1,
+		FIELD2,
+		FIELD3
+		)
+		VALUES ( 'VALUE1', 'VALUE2', 'VALUE3' )
+					</code>
+				</pre>
+		</figure>
+		
+
+		<figure>
+			<figcaption>Insert statement with join (From another table)</figcaption>
+				<pre>
+					<code>
+	INSERT INTO [TABLENAME TO INSERT DATA INTO]
+		(
+		FIELD1,
+		FIELD2,
+		FIELD3
+		)
+		VALUES
+			(
+			SELECT
+				FIELD1,
+				FIELD2,
+				FIELD3
+			FROM [TABLENAME PULLING DATA FROM]
+			)
+					</code>
+				</pre>
+		</figure>
+		
+		
+		<figure>
+			<figcaption>Insert statement with join (From another table) with where clause</figcaption>
+	<pre><code>
+	INSERT INTO [TABLENAME TO INSERT DATA INTO]			
+		(
+		FIELD1,
+		FIELD2,
+		FIELD3
+		)
+		VALUES
+			(
+			SELECT
+				FIELD1,
+				FIELD2,
+				FIELD3
+			FROM [TABLENAME PULLING DATA FROM]
+			WHERE [TABLENAME PULLING DATA FROM].[somefield]= 'Constraint' )
+	</code></pre>
+		</figure>
+
+
+	
+</div>
+
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

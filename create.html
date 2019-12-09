@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Create</title>
+    <meta name="description" content="boilerplate" />
+    <meta name="keywords" content="boilerplate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+	  <style>
+pre, code {
+  font-family: monospace, monospace;
+}
+
+code{
+		overflow-x: scroll;
+		overflow-y: hidden;
+}
+
+figcaption {
+
+}
+
+  </style>
+  <body>
+
+
+<div class = "container">
+
+
+    </figure>
+	    <figure>
+			<figcaption>Create a table (basic)</figcaption>
+				<pre>
+					<code>
+	CREATE TABLE NAME_OF_TABLE
+		( 
+		FIELD1 VARCHAR(128),
+		FIELD2 DATE,
+		FIELD3 NUMBER(38)
+		);
+					</code>
+				</pre>
+	</figure>
+		
+
+		<figure>
+			<figcaption>Create statement with auto-incrementing ID (Before 12c)</figcaption>
+				<pre>
+					<code>
+	CREATE TABLE NAME_OF_TABLE
+		( 
+		ID NUMBER(10) NOT NULL,
+		FIELD1 VARCHAR(128),
+		FIELD2 DATE,
+		FIELD3 NUMBER(38)
+		);
+		</code></pre>
+		
+		<figcaption>Alter Table to Add Primary Key for auto-incrementing ID field (Before 12c)</figcaption>
+		<pre><code>
+	ALTER TABLE NAME_OF_TABLE
+		( 
+		ADD(CONSTRAINT NAME_OF_TABLE_PK PRIMARY KEY (ID))
+		);
+		</code></pre>
+		
+		<figcaption>Add trigger sequence to table with auto-incrementing ID field to increment i+1 (Before 12c)</figcaption>
+		<pre><code>
+	CREATE OR REPLACE TRIGGER NAME_OF_TABLE_INSERT
+		BEFORE INSERT ON NAME_OF_TABLE
+		FOR EACH ROW
+	   BEGIN
+		SELECT NAME_OF_TABLE_SEQ.NEXTVAL
+		INTO :NEW.ID
+		FROM DUAL;
+	   END;
+	   	</code></pre>
+		
+	
+
+	</figure>
+	    <figure>
+			<figcaption>Create statement with auto-incrementing ID(12c and onwards)</figcaption>
+				<pre>
+					<code>
+	CREATE TABLE NAME_OF_TABLE
+		( 
+	    ID NUMBER(10) NUMBER GENERATED ALWAYS AS IDENTITY,
+		FIELD1 VARCHAR(128),
+		FIELD2 DATE,
+		FIELD3 NUMBER(38)
+		);
+					</code>
+				</pre>
+	</figure>
+	
+	
+    </figure>
+	    <figure>
+			<figcaption>Create table from existing data table</figcaption>
+				<pre>
+					<code>
+	CREATE TABLE NAME_OF_TABLE AS SELECT * FROM NAME_OF_TABLE_CREATING_FROM;
+					</code>
+				</pre>
+	</figure>
+		
+
+
+
+
+	
+</div>
+
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

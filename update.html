@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Update</title>
+    <meta name="description" content="boilerplate" />
+    <meta name="keywords" content="boilerplate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+	  <style>
+pre, code {
+  font-family: monospace, monospace;
+}
+
+code{
+		overflow-x: scroll;
+		overflow-y: hidden;
+}
+
+figcaption {
+
+}
+
+  </style>
+  <body>
+  
+<div class = "container">
+  
+	    <figure>
+			<figcaption>Update a table (basic)</figcaption>
+				<pre>
+					<code>
+	UPDATE TABLE_TO_UPDATE
+		SET
+		FIELD_TO_UPDATE_1 = 'VALUE_1',
+		FIELD_TO_UPDATE_2 = 'VALUE_2'
+					</code>
+				</pre>
+	</figure>
+	
+	<figure>
+		<figcaption>Update a table with where clause</figcaption>
+				<pre>
+					<code>
+	UPDATE TABLE_TO_UPDATE
+		SET
+		FIELD_TO_UPDATE_1 = 'VALUE_1',
+		FIELD_TO_UPDATE_2 = 'VALUE_2'
+					</code>
+				</pre>
+	</figure>
+	
+	<figure>
+		<figcaption>Update a table with from another table using a 'WHERE EXIST' clause. Use 'WHERE EXIST' clause is needed to make sure only the records that need be updated are updated.</figcaption>
+				<pre>
+					<code>
+	UPDATE TABLE_TO_UPDATE
+		SET
+		(FIELD_TO_UPDATE)
+		=
+		(
+		SELECT 
+			TABLE_PULLING_DATA_FROM.VALUE_1
+		FROM TABLE_PULLING_DATA_FROM
+		WHERE TABLE_TO_UPDATE.JOIN_FIELD = TABLE_PULLING_DATA_FROM.JOIN_FIELD
+		)
+		WHERE EXISTS
+		(
+		SELECT 
+			TABLE_PULLING_DATA_FROM.VALUE_1
+		FROM TABLE_PULLING_DATA_FROM
+		WHERE TABLE_TO_UPDATE.JOIN_FIELD = TABLE_PULLING_DATA_FROM.JOIN_FIELD
+		)
+					</code>
+				</pre>
+	</figure>
+	
+		<figure>
+		<figcaption>Update a table with from another table using a 'WHERE EXIST' clause and WHERE clause on the table being updated. Use 'WHERE EXIST' clause is needed to make sure only the records that need be updated are updated.</figcaption>
+				<pre>
+					<code>
+	UPDATE TABLE_TO_UPDATE
+		SET
+		(FIELD_TO_UPDATE)
+		=
+		(
+		SELECT 
+			TABLE_PULLING_DATA_FROM.VALUE_1
+		FROM TABLE_PULLING_DATA_FROM
+		WHERE TABLE_TO_UPDATE.JOIN_FIELD = TABLE_PULLING_DATA_FROM.JOIN_FIELD
+		)
+		WHERE EXISTS
+		(
+		SELECT 
+			TABLE_PULLING_DATA_FROM.VALUE_1
+		FROM TABLE_PULLING_DATA_FROM
+		WHERE TABLE_TO_UPDATE.JOIN_FIELD = TABLE_PULLING_DATA_FROM.JOIN_FIELD
+		)
+		WHERE TABLE_TO_UPDATE.CONSTRAINT = 'Constraint'
+					</code>
+				</pre>
+	</figure>
+	
+	
+		<figure>
+		<figcaption>Update a table with multiple values from another table using a 'WHERE EXIST' clause. Use 'WHERE EXIST' clause is needed to make sure only the records that need be updated are updated.</figcaption>
+				<pre>
+					<code>
+	UPDATE TABLE_TO_UPDATE
+		SET
+		(
+		FIELD_TO_UPDATE_1,
+		FIELD_TO_UPDATE_2,
+		FIELD_TO_UPDATE_3
+		)
+		=
+		(
+		SELECT 
+			TABLE_PULLING_DATA_FROM.VALUE_1,
+			TABLE_PULLING_DATA_FROM.VALUE_2,
+			TABLE_PULLING_DATA_FROM.VALUE_3,
+		FROM TABLE_PULLING_DATA_FROM
+		WHERE TABLE_TO_UPDATE.JOIN_FIELD = TABLE_PULLING_DATA_FROM.JOIN_FIELD
+		)
+		WHERE EXISTS
+		(
+		SELECT 
+			TABLE_PULLING_DATA_FROM.VALUE_1,
+			TABLE_PULLING_DATA_FROM.VALUE_2,
+			TABLE_PULLING_DATA_FROM.VALUE_3,
+		FROM TABLE_PULLING_DATA_FROM
+		WHERE TABLE_TO_UPDATE.JOIN_FIELD = TABLE_PULLING_DATA_FROM.JOIN_FIELD
+		)
+					</code>
+				</pre>
+	</figure>
+	
+	<figure>
+		<figcaption>Update a table with multiple values from another table using a 'WHERE EXIST' clause and WHERE clause on the table being updated. Use 'WHERE EXIST' clause is needed to make sure only the records that need be updated are updated.</figcaption>
+				<pre>
+					<code>
+	UPDATE TABLE_TO_UPDATE
+		SET
+		(
+		FIELD_TO_UPDATE_1,
+		FIELD_TO_UPDATE_2,
+		FIELD_TO_UPDATE_3
+		)
+		=
+		(
+		SELECT 
+			TABLE_PULLING_DATA_FROM.VALUE_1,
+			TABLE_PULLING_DATA_FROM.VALUE_2,
+			TABLE_PULLING_DATA_FROM.VALUE_3,
+		FROM TABLE_PULLING_DATA_FROM
+		WHERE TABLE_TO_UPDATE.JOIN_FIELD = TABLE_PULLING_DATA_FROM.JOIN_FIELD
+		)
+		WHERE EXISTS
+		(
+		SELECT 
+			TABLE_PULLING_DATA_FROM.VALUE_1,
+			TABLE_PULLING_DATA_FROM.VALUE_2,
+			TABLE_PULLING_DATA_FROM.VALUE_3,
+		FROM TABLE_PULLING_DATA_FROM
+		WHERE TABLE_TO_UPDATE.JOIN_FIELD = TABLE_PULLING_DATA_FROM.JOIN_FIELD
+		)
+		WHERE TABLE_TO_UPDATE.CONSTRAINT = 'Constraint'
+					</code>
+				</pre>
+	</figure>
+	
+		<figure>
+		<figcaption>Bonus: Sometimes using the table name can be pretty verbrose and there can be multiple constraints. This is one way of assigning an alias to a table and adding multiple constraints. Update a table with multiple values from another table using a 'WHERE EXIST' clause and WHERE clause on the table being updated. Use 'WHERE EXIST' clause is needed to make sure only the records that need be updated are updated.</figcaption>
+				<pre>
+					<code>
+	UPDATE TABLE_TO_UPDATE A
+		SET
+		(
+		FIELD_TO_UPDATE_1,
+		FIELD_TO_UPDATE_2,
+		FIELD_TO_UPDATE_3
+		)
+		=
+		(
+		SELECT 
+			B.VALUE_1,
+			B.VALUE_2,
+			B.VALUE_3,
+		FROM TABLE_PULLING_DATA_FROM B
+		WHERE A.JOIN_FIELD = B.JOIN_FIELD AND B.VALUE = 'Constraint'
+		)
+		WHERE EXISTS
+		(
+		SELECT 
+			B.VALUE_1,
+			B.VALUE_2,
+			B.VALUE_3,
+		FROM TABLE_PULLING_DATA_FROM B
+		WHERE A.JOIN_FIELD = B.JOIN_FIELD AND B.VALUE = 'Constraint'
+		)
+		WHERE A.CONSTRAINT IN ('Constraint_1','Constraint_2','(Constraint_3')
+					</code>
+				</pre>
+	</figure>
+	
+			<figure>
+		<figcaption>Bonus tip: If the constraint field is a text fieldM make it uppercase in the update statement can help alleviate some headache associated with mix case characters! Recommend to use this method in general</figcaption>
+				<pre>
+					<code>
+	WHERE UPPER(A.CONSTRAINT) IN ('Constraint_1')
+					</code>
+				</pre>
+	</figure>
+  
+</div>
+  
+      <script src="js/scripts.js"></script>
+  </body>
+</html>

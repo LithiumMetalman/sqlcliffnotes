@@ -4,7 +4,7 @@
     <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Oracle SQL Cheater Sheet</title>
+    <title>Insert</title>
     <meta name="description" content="boilerplate" />
     <meta name="keywords" content="boilerplate" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,13 +34,13 @@ figcaption {
 			<figcaption>Insert statement</figcaption>
 				<pre>
 					<code>
-	INSERT INTO [TABLENAME TO INSERT DATE INTO] 
+	INSERT INTO TABLENAME_TO_INSERT_DATA_INTO
 		( 
 		FIELD1,
 		FIELD2,
 		FIELD3
 		)
-		VALUES ( 'VALUE1', 'VALUE2', 'VALUE3' )
+		VALUES ( 'VALUE1', 'VALUE2', 'VALUE3' );
 					</code>
 				</pre>
 		</figure>
@@ -50,7 +50,7 @@ figcaption {
 			<figcaption>Insert statement with join (From another table)</figcaption>
 				<pre>
 					<code>
-	INSERT INTO [TABLENAME TO INSERT DATA INTO]
+	INSERT INTO TABLENAME_TO_INSERT_DATA_INTO	
 		(
 		FIELD1,
 		FIELD2,
@@ -62,8 +62,8 @@ figcaption {
 				FIELD1,
 				FIELD2,
 				FIELD3
-			FROM [TABLENAME PULLING DATA FROM]
-			)
+			FROM TABLENAME_PULLING_DATA_FROM
+			);
 					</code>
 				</pre>
 		</figure>
@@ -72,7 +72,7 @@ figcaption {
 		<figure>
 			<figcaption>Insert statement with join (From another table) with where clause</figcaption>
 	<pre><code>
-	INSERT INTO [TABLENAME TO INSERT DATA INTO]			
+	INSERT INTO TABLENAME_TO_INSERT_DATA_INTO			
 		(
 		FIELD1,
 		FIELD2,
@@ -84,8 +84,9 @@ figcaption {
 				FIELD1,
 				FIELD2,
 				FIELD3
-			FROM [TABLENAME PULLING DATA FROM]
-			WHERE [TABLENAME PULLING DATA FROM].[somefield]= 'Constraint' )
+			FROM TABLENAME_PULLING_DATA_FROM
+			WHERE TABLENAME_PULLING_DATA_FROM.JOINING_FIELD = 'Constraint' 
+			);
 	</code></pre>
 		</figure>
 
